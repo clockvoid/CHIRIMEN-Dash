@@ -21,11 +21,10 @@ onload = function() {
           // Get Sensor Data
           GroveTouch.read(_i2cPort,_deviceAddress).then(ch => {
             console.log(ch);
+            var senddata = "check";
             if(ch.length >= 1){
               if(ch[0]){
                 senddata = "help";
-              }else{
-                senddata = "check";
               }
             }
             // Send HTTP Request
