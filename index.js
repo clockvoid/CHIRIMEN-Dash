@@ -1,12 +1,15 @@
 const http = require('http');
 const $ = require('jquery');
 
+var isHelped = false;
+
 var help = function() {
+  isHelped = true;
   return 'helped';
 }
 
 var check = function() {
-  return 'checked!!';
+  return isHelped ? 'yes' : 'no';
 }
 
 http.createServer((req, res) => {

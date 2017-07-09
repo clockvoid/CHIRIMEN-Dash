@@ -71,12 +71,15 @@ module.exports =
 const http = __webpack_require__(1);
 const $ = __webpack_require__(2);
 
+var isHelped = false;
+
 var help = function () {
+  isHelped = true;
   return 'helped';
 };
 
 var check = function () {
-  return 'checked!!';
+  return isHelped ? 'yes' : 'no';
 };
 
 http.createServer((req, res) => {
